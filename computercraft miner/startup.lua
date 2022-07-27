@@ -49,9 +49,10 @@ turtle.dig()
 blocksmined = blocksmined + 1
 turtle.down()
 left = left - 1
-os.setComputerLabel("Minejerik Miner Blocks Left: "..left)
+os.setComputerLabel("Minejerik Miner|Blocks Left: "..left)
 end
 print("done mining going up")
+os.setComputerLabel("Minejerik Miner|Going Up!")
 for i = 1, times, 1 do
 turtle.up()
 end
