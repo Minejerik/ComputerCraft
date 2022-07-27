@@ -1,5 +1,5 @@
-if fs.exists("offlineminer.lua") then
-  fs.delete("offlineminer.lua")
+if fs.exists("offlineminer") then
+  fs.delete("offlineminer")
 end
 print("refueling")
 local blocksmined
