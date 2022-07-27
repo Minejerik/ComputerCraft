@@ -51,6 +51,13 @@ blocksmined = blocksmined + 1
 turtle.down()
 left = left - 1
 os.setComputerLabel("Minejerik Miner|Blocks Left: "..left)
+for g = 1, 16, 1 do
+local uccess, dayta = turtle.getItemDetail(g)
+if dayta == "cobblestone" or dayta == "cobbled_deepslate" or dayta == "sand" or dayta == "clay_ball" then
+turtle.select(g) 
+turtle.dropDown()
+end
+end
 end
 print("done mining going up")
 os.setComputerLabel("Minejerik Miner|Going Up!")
