@@ -1,4 +1,6 @@
-
+turtle.forward()
+turtle.forward()
+turtle.forward()
 print("refueling")
 local blocksmined
 local left
@@ -15,8 +17,9 @@ if fuel < 100 then -- if the fuel level is less than 100
   os.exit() -- exit the program
 end
 blocksmined = 0
-print("how far down would you like to go")
-local times = read()
+--print("how far down would you like to go")
+--local times = read()
+local times = 133
 left = times
 turtle.digDown()
 blocksmined=blocksmined+1
@@ -58,3 +61,4 @@ turtle.up()
 end
 os.setComputerLabel("Minejerik Miner|Done Mining!")
 print("Number of blocks mined: "..blocksmined)
+os.reboot()
