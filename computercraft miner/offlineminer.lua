@@ -12,5 +12,5 @@ print("deleting old startup")
 fs.delete("startup")
 end
 print("Starting download")
-shell.run("wget https://raw.githubusercontent.com/Minejerikisme/computercraftstuff/main/startup.lua")
+shell.run("wget https://raw.githubusercontent.com/Minejerikisme/ComputerCraft/master/computercraft%20miner/startup.lua")
 os.reboot()
