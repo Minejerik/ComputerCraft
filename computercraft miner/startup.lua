@@ -56,4 +56,5 @@ os.setComputerLabel("Minejerik Miner|Going Up!")
 for i = 1, times, 1 do
 turtle.up()
 end
+os.setComputerLabel("Minejerik Miner|Done Mining!")
 print("Number of blocks mined: "..blocksmined)
