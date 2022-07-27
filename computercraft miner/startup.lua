@@ -1,6 +1,4 @@
-if fs.exists("offlineminer") then
-  fs.delete("offlineminer")
-end
+
 print("refueling")
 local blocksmined
 local left
