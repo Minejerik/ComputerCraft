@@ -65,13 +65,17 @@ turtle.digDown()
 local function bems()
 
 
-for i = 1, 4, 1 do
+for i = 1,x-1 , 1 do
 turtle.dig()
 turtle.forward()
 turtle.digUp()
 turtle.digDown()
 end
+if i % 2 == 0 then
+turtle.turnLeft()
+else
 turtle.turnRight()
+end
 turtle.dig()
 turtle.forward()
 turtle.digUp()
@@ -79,6 +83,5 @@ turtle.digDown()
 turtle.turnRight()
 end
 for i = 1, 5, 1 do
-bems()
 end
 end
