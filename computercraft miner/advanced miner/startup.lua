@@ -62,7 +62,7 @@ turtle.down()
 turtle.digDown()
 turtle.down()
 turtle.digDown()
-local function bems()
+
 
 
 for i = 1,x-1 , 1 do
@@ -84,4 +84,4 @@ turtle.turnRight()
 end
 for i = 1, 5, 1 do
 end
-end
+miner()
