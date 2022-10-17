@@ -29,38 +29,63 @@ broad.init()
 
 function main()
 
-io.write("Up ") if option == 1 then io.write(curser) else end; if option == 1 then io.write("   Currently Selected Item: "..Curritem.."\n")else io.write("	Currently Selected Item: "..Curritem.."\n") end
+    io.write("Up ")
+    if option == 1 then io.write(curser) else end
+    if option == 1 then io.write("   Currently Selected Item: " .. Curritem .. "\n") else io.write("	Currently Selected Item: "
+        .. Curritem .. "\n") end
 
-io.write("Down ") if option == 2 then io.write(curser) else end;if option == 2 then io.write("		Item Amount: "..Itemnum.."\n") else io.write("			Item Amount: "..Itemnum.."\n") end
+    io.write("Down ")
+    if option == 2 then io.write(curser) else end
+    if option == 2 then io.write("		Item Amount: " .. Itemnum .. "\n") else io.write("			Item Amount: " .. Itemnum ..
+        "\n") end
 
-io.write("Forward ") if option == 3 then io.write(curser) else end;if option == 3 then io.write('	Fuel Amount: '..Fuelnum.."\n") else io.write('		Fuel Amount: '..Fuelnum.."\n") end
+    io.write("Forward ")
+    if option == 3 then io.write(curser) else end
+    if option == 3 then io.write('	Fuel Amount: ' .. Fuelnum .. "\n") else io.write('		Fuel Amount: ' .. Fuelnum .. "\n") end
 
-io.write("Backword ") if option == 4 then io.write(curser) else end;if option == 4 then io.write('	Block Above: '..Blockabove.."\n") else io.write('		Block Above: '..Blockabove.."\n") end
+    io.write("Backword ")
+    if option == 4 then io.write(curser) else end
+    if option == 4 then io.write('	Block Above: ' .. Blockabove .. "\n") else io.write('		Block Above: ' ..
+        Blockabove .. "\n") end
 
-io.write("Place ") if option == 5 then io.write(curser) else end;if option == 5 then io.write('		Block Below: '..Blockbelow.."\n") else io.write('			Block Below: '..Blockbelow.."\n") end
+    io.write("Place ")
+    if option == 5 then io.write(curser) else end
+    if option == 5 then io.write('		Block Below: ' .. Blockbelow .. "\n") else io.write('			Block Below: ' ..
+        Blockbelow .. "\n") end
 
-io.write("Left Turn ") if option == 6 then io.write(curser) else end;if option == 6 then io.write('	Block Ahead: '..Blockahead.."\n") else io.write('		Block Ahead: '..Blockahead.."\n") end
+    io.write("Left Turn ")
+    if option == 6 then io.write(curser) else end
+    if option == 6 then io.write('	Block Ahead: ' .. Blockahead .. "\n") else io.write('		Block Ahead: ' ..
+        Blockahead .. "\n") end
 
-io.write("Right Turn ") if option == 7 then io.write(curser) else end;if option == 7 then io.write('Coords(x,y,z): '..Coords..'\n') else io.write('		Coords(x,y,z): '..Coords..'\n') end
-io.write("Mine ") if option == 8 then io.write(curser..'\n') else io.write('\n') end;
-io.write("Mine Down ") if option == 9 then io.write(curser..'\n') else io.write('\n') end;
-io.write("Mine Up ") if option == 10 then io.write(curser..'\n') else io.write('\n') end;
-io.write("Cycle Items ") if option == 11 then io.write(curser..'\n') else io.write('\n') end;
-io.write("Refuel ") if option == 12 then io.write(curser..'\n') else io.write('\n') end;
-local input = io.read()
-if input == "w" then
-if option ~= 1 then
-option = option - 1
+    io.write("Right Turn ")
+    if option == 7 then io.write(curser) else end
+    if option == 7 then io.write('Coords(x,y,z): ' .. Coords .. '\n') else io.write('		Coords(x,y,z): ' .. Coords .. '\n') end
+    io.write("Mine ")
+    if option == 8 then io.write(curser .. '\n') else io.write('\n') end
+    io.write("Mine Down ")
+    if option == 9 then io.write(curser .. '\n') else io.write('\n') end
+    io.write("Mine Up ")
+    if option == 10 then io.write(curser .. '\n') else io.write('\n') end
+    io.write("Cycle Items ")
+    if option == 11 then io.write(curser .. '\n') else io.write('\n') end
+    io.write("Refuel ")
+    if option == 12 then io.write(curser .. '\n') else io.write('\n') end
+    local input = io.read()
+    if input == "w" then
+        if option ~= 1 then
+            option = option - 1
+        end
+    elseif input == "s" then
+        if option ~= 12 then
+            option = option + 1
+        end
+    elseif input == "q" then
+        broad.send(turtid, messages[option])
+    end
+
+    term.clear()
+    main()
 end
-elseif input == "s" then
-if option ~= 12 then
-option = option + 1
-end
-elseif input == "q" then
-broad.send(turtid,messages[option])
-end
 
-term.clear()
-main()
-end
 main()

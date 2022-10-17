@@ -23,6 +23,7 @@ local function mainloop()
     end
     mainloop()
 end
+
 if true then
-mainloop()
+    mainloop()
 end

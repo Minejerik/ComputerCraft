@@ -1,33 +1,32 @@
 rednet.open("left")
 local coords
 local function sendinfo()
-local x,y,z = gps.locate()
-if not x == nil then
-coords = x..' | '..y..' | '..z
-else
-coords = ' '
+    local x, y, z = gps.locate()
+    if not x == nil then
+        coords = x .. ' | ' .. y .. ' | ' .. z
+    else
+        coords = ' '
+    end
+    local Fuelnum = turtle.getFuelLevel()
+    local Curritem = turtle.getItemDetail()
+    if Curritem == nil then Curritem = 'nothing' else Curritem = Curritem.name end
+    local Itemnum = turtle.getItemCount()
+
+    local df, Blockabove = turtle.inspectUp()
+    if df == false then Blockabove = 'air' else Blockabove = Blockabove.name end
+    local df, Blockbelow = turtle.inspectDown()
+    if df == false then Blockbelow = 'air' else Blockbelow = Blockbelow.name end
+    local df, Blockahead = turtle.inspect()
+    if df == false then Blockahead = 'air' else Blockahead = Blockahead.name end
+    local messa = coords .. ',' ..
+        Fuelnum .. ',' .. Curritem .. ',' .. Itemnum .. ',' .. Blockabove .. ',' .. Blockbelow .. ',' .. Blockahead
+    rednet.send(0, messa)
 end
-local Fuelnum = turtle.getFuelLevel()
-local Curritem = turtle.getItemDetail()
-if Curritem == nil then Curritem = 'nothing' else Curritem = Curritem.name end
-local Itemnum = turtle.getItemCount()
-
-local df, Blockabove = turtle.inspectUp()
-if df == false then Blockabove = 'air' else Blockabove = Blockabove.name end
-local df, Blockbelow = turtle.inspectDown()
-if df == false then Blockbelow = 'air' else Blockbelow = Blockbelow.name end
-local df, Blockahead = turtle.inspect()
-if df == false then Blockahead = 'air' else Blockahead = Blockahead.name end
-local messa = coords..','..Fuelnum..','..Curritem..','..Itemnum..','..Blockabove..','..Blockbelow..','..Blockahead
-rednet.send(0,messa)
-end
-
-
 
 while true do
     local event, id, text = os.pullEvent()
     if event == "rednet_message" then
-        print(id..'> '..text)
+        print(id .. '> ' .. text)
         if text == "up" then
             turtle.up()
             sendinfo()
@@ -40,7 +39,7 @@ while true do
         elseif text == 'backword' then
             turtle.back()
             sendinfo()
-        elseif text == 'place'  then
+        elseif text == 'place' then
             turtle.place()
             sendinfo()
         elseif text == 'left' then
@@ -67,5 +66,3 @@ while true do
         end
     end
 end
-
-
