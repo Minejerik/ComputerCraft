@@ -8,6 +8,7 @@ redstoneside = read()
 print("what is the ID of the pda?")
 local pdaid = tonumber(read())
 rednet.send(pdaid, tostring(os.getComputerID()))
+
 local function mainloop()
     local Input = rednet.receive()
     if Input == "unlock" then
@@ -21,9 +22,5 @@ local function mainloop()
         os.exit()
         return
     end
-    mainloop()
-end
-
-if true then
     mainloop()
 end
