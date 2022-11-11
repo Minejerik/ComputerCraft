@@ -1,11 +1,6 @@
 local broad = require('broadcast')
 local option = 1
-Coords = " "
-Curritem = " "
-Itemnum = ' '
-Fuelnum = '10'
-Blockahead = " "
-Blockbelow = " "
+Data = {}
 Blockabove = " "
 local curcolor = ""
 local curser = "<--- "
@@ -31,36 +26,36 @@ function main()
 
     io.write("Up ")
     if option == 1 then io.write(curser) else end
-    if option == 1 then io.write("   Currently Selected Item: " .. Curritem .. "\n") else io.write("	Currently Selected Item: "
-        .. Curritem .. "\n") end
+    if option == 1 then io.write("   Currently Selected Item: " .. Data['Curritem'] .. "\n") else io.write("	Currently Selected Item: "
+        .. Data['Curritem'] .. "\n") end
 
     io.write("Down ")
     if option == 2 then io.write(curser) else end
-    if option == 2 then io.write("		Item Amount: " .. Itemnum .. "\n") else io.write("			Item Amount: " .. Itemnum ..
+    if option == 2 then io.write("		Item Amount: " .. data['Itemnum'] .. "\n") else io.write("			Item Amount: " .. data['Itemnum'] ..
         "\n") end
 
     io.write("Forward ")
     if option == 3 then io.write(curser) else end
-    if option == 3 then io.write('	Fuel Amount: ' .. Fuelnum .. "\n") else io.write('		Fuel Amount: ' .. Fuelnum .. "\n") end
+    if option == 3 then io.write('	Fuel Amount: ' .. data['Fuelnum'] .. "\n") else io.write('		Fuel Amount: ' .. data['Fuelnum'] .. "\n") end
 
     io.write("Backword ")
     if option == 4 then io.write(curser) else end
-    if option == 4 then io.write('	Block Above: ' .. Blockabove .. "\n") else io.write('		Block Above: ' ..
-        Blockabove .. "\n") end
+    if option == 4 then io.write('	Block Above: ' .. data['Blockabove'] .. "\n") else io.write('		Block Above: ' ..
+        data['Blockabove'] .. "\n") end
 
     io.write("Place ")
     if option == 5 then io.write(curser) else end
-    if option == 5 then io.write('		Block Below: ' .. Blockbelow .. "\n") else io.write('			Block Below: ' ..
-        Blockbelow .. "\n") end
+    if option == 5 then io.write('		Block Below: ' .. data['Blockbelow'] .. "\n") else io.write('			Block Below: ' ..
+        data['Blockbelow'] .. "\n") end
 
     io.write("Left Turn ")
     if option == 6 then io.write(curser) else end
-    if option == 6 then io.write('	Block Ahead: ' .. Blockahead .. "\n") else io.write('		Block Ahead: ' ..
-        Blockahead .. "\n") end
+    if option == 6 then io.write('	Block Ahead: ' .. data['Blockahead'] .. "\n") else io.write('		Block Ahead: ' ..
+        data['Blockahead'] .. "\n") end
 
     io.write("Right Turn ")
     if option == 7 then io.write(curser) else end
-    if option == 7 then io.write('Coords(x,y,z): ' .. Coords .. '\n') else io.write('		Coords(x,y,z): ' .. Coords .. '\n') end
+    if option == 7 then io.write('Coords(x,y,z): ' .. data['Coords'] .. '\n') else io.write('		Coords(x,y,z): ' .. data['Coords'] .. '\n') end
     io.write("Mine ")
     if option == 8 then io.write(curser .. '\n') else io.write('\n') end
     io.write("Mine Down ")

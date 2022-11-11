@@ -1,26 +1,25 @@
 rednet.open("left")
-local coords
-local function sendinfo()
-    local x, y, z = gps.locate()
+ local data = {}
+ function sendinfo()
+     x, y, z = gps.locate()
     if not x == nil then
-        coords = x .. ' | ' .. y .. ' | ' .. z
+        data['coords'] = x .. ' | ' .. y .. ' | ' .. z
     else
-        coords = ' '
+        data['coords'] = 'GPS not found'
     end
-    local Fuelnum = turtle.getFuelLevel()
-    local Curritem = turtle.getItemDetail()
-    if Curritem == nil then Curritem = 'nothing' else Curritem = Curritem.name end
-    local Itemnum = turtle.getItemCount()
+     Fuelnum = turtle.getFuelLevel()
+     data['Curritem'] = turtle.getItemDetail()
+    if data['Curritem'] == nil then data['Curritem'] = 'nothing' else data['Curritem'] = data['Curritem'].name end
+     data['Itemnum'] = turtle.getItemCount()
 
-    local df, Blockabove = turtle.inspectUp()
-    if df == false then Blockabove = 'air' else Blockabove = Blockabove.name end
-    local df, Blockbelow = turtle.inspectDown()
-    if df == false then Blockbelow = 'air' else Blockbelow = Blockbelow.name end
-    local df, Blockahead = turtle.inspect()
-    if df == false then Blockahead = 'air' else Blockahead = Blockahead.name end
-    local messa = coords .. ',' ..
-        Fuelnum .. ',' .. Curritem .. ',' .. Itemnum .. ',' .. Blockabove .. ',' .. Blockbelow .. ',' .. Blockahead
-    rednet.send(0, messa)
+     df, data['Blockabove'] = turtle.inspectUp()
+    if df == false then data['Blockabove'] = 'air' else data['Blockabove'] = data['Blockabove'].name end
+     df, data['Blockbelow'] = turtle.inspectDown()
+    if df == false then data['Blockbelow'] = 'air' else data['Blockbelow'] = data['Blockbelow'].name end
+     df, data['Blockahead'] = turtle.inspect()
+    if df == false then data['Blockahead'] = 'air' else data['Blockahead'] = data['Blockahead'].name end
+
+    rednet.send(0, data)
 end
 
 while true do
